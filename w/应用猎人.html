@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<!-- saved from url=(0042)http://h5.jizhukeji.com/share.html?u=51197 -->
+<html style="font-size: 65.6px;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		
+		<title>欢迎加入应用猎人</title>
+		<script src="./应用猎人_files/hm.js.下载"></script><script src="./应用猎人_files/hm.js(1).下载"></script><script type="text/javascript">
+        var html = document.querySelector('html')
+			html.style.fontSize = html.offsetWidth / 7.5 + "px";
+			addEventListener('resize', function() {
+				html.style.fontSize = html.offsetWidth / 7.5 + "px"
+			}, false);
+		</script>
+		<link rel="stylesheet" type="text/css" href="./应用猎人_files/share.min.css">
+		<script type="text/javascript" src="./应用猎人_files/jquery-1.9.1.min.js.下载">			
+		</script>
+    <script type="text/javascript" src="./应用猎人_files/config.js.下载"></script>
+	</head>
+	<body style="display: block;">
+		<div id="share">
+			<!--banner-->
+			 <div class="swiper-container">    
+             <img src="./应用猎人_files/bg1.png" class="p1" style="display: none;"> 
+             <img src="./应用猎人_files/bg2.png" class="p2" style="display: none;">
+             <img src="./应用猎人_files/bg3.png" class="p3" style="display: inline;">  
+              <img src="./应用猎人_files/foot.png" class="p4" style="display: none;">  
+            
+    </div>
+   
+    <div class="vediobg">
+    	<video src="https://ojicd0hpd.qnssl.com/video.mp4" preload="none" controls="" id="myvedio"></video>
+    	<div class="close" onclick="pause()">
+    		
+    	</div>
+    </div>
+		     <!--内容图-->
+		     <div class="content">
+		     	 <div class="preson">
+    	<img src="./应用猎人_files/logo.png" style="display: block;">
+    </div>  
+    <div class="play" onclick="play()" id="play">
+    	
+    </div>
+		     	<div class="btn">
+		     		
+		     	</div>
+		     </div>
+		  
+		      <div class="mask">
+	     	
+		     </div>
+		     <div class="mask2">	
+		     	 <img src="./应用猎人_files/close.png" class="close_img">
+		     	<img src="./应用猎人_files/sharecode.png" class="maskimg1">
+		     	<img src="./应用猎人_files/showqrcode" class="maskimg2">
+		     </div>
+		</div>
+	
+	<script type="text/javascript">	
+window.onload=function(){
+    $('body').css('display','block')
+
+}
+	function GetQueryString(name) {
+	var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+	var r = window.location.search.substr(1).match(reg);
+	if(r != null) {
+		return unescape(r[2])
+	}
+	return null
+}
+var uid = GetQueryString("u");
+      $.ajax({
+			type: "get",
+			url: API_ROOT + "wx/user-ticket",
+			async: true,
+			data: {
+				"p": uid
+			},
+			dataType: 'JSON',
+			success: function(data) {
+				console.log(data)
+             $(".mask2  .maskimg2").attr("src",data.data.ticket_img_url)
+			}
+		})
+
+
+
+
+		var myvedio=document.getElementById("myvedio");		
+		
+		$("#play").on("click",function(){
+			$(".mask").show()
+			$(".vediobg").show()
+		})
+		function play(){
+			myvedio.play()
+		}
+		$(".close").on("click",function(){
+			$(".mask").hide()
+			$(".vediobg").hide()
+		})
+		function pause(){
+			myvedio.pause()
+		}
+		var i=0;
+		setInterval(function(){
+			if(i>3){
+				i=0;
+				
+			}else{
+				if(i>2){
+					$(".preson img").hide();
+				}else{
+					$(".preson img").show();
+				}				
+				$(".swiper-container>img").eq(i).show();
+				$(".swiper-container>img").eq(i).siblings().hide();
+				i++;				
+			}		
+		},1000)
+		$(".btn").on("click",function(){
+			$(".mask2").show();
+			$(".mask2 img").show();
+		})
+		$(".close_img").on("click",function(){
+			$(".mask2").hide();
+			$(".mask2 img").hide();
+		});
+	</script>
+	<script type="text/javascript">
+		
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?d05f5420be813254d94a0952d02049d9";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+
+	</script>
+
+<div id="cli_dialog_div"></div><div id="window-resizer-tooltip"><a href="http://h5.jizhukeji.com/share.html?u=51197#" title="Edit settings"></a><span class="tooltipTitle">Window size: </span><span class="tooltipWidth" id="winWidth"></span> x <span class="tooltipHeight" id="winHeight"></span><br><span class="tooltipTitle"><span class="recall_word" value="viewport">Viewport</span> size: </span><span class="tooltipWidth" id="vpWidth"></span> x <span class="tooltipHeight" id="vpHeight"></span></div><div id="READDOC_BOX_DIV" style="display: none; z-index: 1000; background:#668B8B; border:solid 1px #BBBBBB; border-radius:5px; box-shadow:0px 0px 15px #999; position:absolute; width: 350px; height:80px ">
+
+</div></body></html>

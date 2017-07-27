@@ -1,0 +1,36 @@
+var API_ROOT='//api.jizhukeji.com/'
+var union_id=localStorage.getItem('union_id');
+var idfa=localStorage.getItem('idfa');
+var share="JZHunter://JIZHU/?shara$";
+var appSoftware="JZHunter://JIZHU/";
+var appopen ="JZHunter://JIZHU/?open$";
+ var base_s="JZHunter://JIZHU/?shara$4$2";
+ //埋点
+ var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?43287c81a7de76fdc2dc9480beed116d";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+window.onload = function () {
+        document.addEventListener('gesturestart', function (e) {
+            e.preventDefault();
+        });
+        document.addEventListener('dblclick', function (e) {
+            e.preventDefault();
+        });
+        document.addEventListener('touchstart', function (event) {
+            if (event.touches.length > 1) {
+                event.preventDefault();
+            }
+        });
+        var lastclick = 0;
+        document.addEventListener('click', function (event) {
+            var now = (new Date()).getTime();
+            if (now - lastclick <= 300) {
+                event.preventDefault();
+            }
+            lastclick = now;
+        }, false);
+    };
