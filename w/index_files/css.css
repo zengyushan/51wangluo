@@ -31,7 +31,7 @@ body { margin: 0 auto; min-width: 320px; max-width: 640px; background: #F6F6F6; 
 .classify_list li a .title h4 { font-size: 17px; margin-bottom: 5px; color: #303030; font-weight: 300; }
 .classify_list li a .title span { color: #F29A52; }
 .classify_list li a .jiaru { float: right; background: #FD682B; border: 0px; color: #FFF; border-radius: 3px; margin: 8px 5px; padding: 6px 18px; font-size: 0.9rem; }
-.classify_list li { padding-bottom: 5px; }
+.classify_list li { padding-bottom: 5px; position: relative;}
 .classify_list .bangzhu a .title h4 { color: #FD682B; font-weight: 700; }
 .classify_list .bangzhu a .title span { color: #a9a5a5; }
 
@@ -45,3 +45,12 @@ body { margin: 0 auto; min-width: 320px; max-width: 640px; background: #F6F6F6; 
 .classify_list .cla_tuchu a .title h4 { color: #FFFF00; font-weight:800;}
 .classify_list .cla_tuchu a .title span { color:#FFF;}
 .classify_list .cla_tuchu a .jiaru { background-color: #44B549; }
+.num{
+	position: absolute;
+	right: 7px;
+	bottom: 3px;
+}
+.txt{
+	display: inline-block;
+	padding-bottom: 15px;
+}
